@@ -1,0 +1,504 @@
+/*BASE STYLES*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Body styling with background color and font family */
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #eaeaea;
+}
+.main-content {
+    max-width: 900px; /* Sets a maximum width for readability */
+    margin: 32px auto; /* Center content horizontally and add top/bottom margin */
+    padding: 0 16px; /* Adds horizontal padding */
+}
+
+/*HEADER*/
+.header {
+    display: flex; /* Flex layout for horizontal alignment */
+    justify-content: space-between; /* Space between logo, nav, and button */
+    align-items: center; /* Vertically center items */
+    padding: 16px 48px;
+    background-color: #333;
+    color: #fff;
+}
+/* Logo styling in the header */
+.logo {
+    font-size: 3em;/* Larger font size */
+    font-family: 'Josefin Sans', sans-serif; /* Specific font */
+}
+/* Navigation links styling */
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 18px;/* Horizontal spacing between links */
+    font-size: larger;
+    font-weight: bold;
+}
+/* Search button styling */
+.search-btn {
+    font-size: 2em;/* Large font for emphasis */
+    font-family: 'Teko', sans-serif;/* Sets specific font for the button */
+    padding: 8px 24px;
+    border-radius: 8px;
+    background: linear-gradient(180deg, #EEF36A, #4DCCBD, #231651);/* Vertical gradient */
+    color: #070410;/* Dark color for text */
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    text-shadow: -1px -1px 0 #FFFFFF,  /* Adds white shadow for text legibility */
+                 1px -1px 0 #FFFFFF,
+                 -1px 1px 0 #FFFFFF,
+                 1px 1px 0 #FFFFFF;
+}
+/* Changes button background on hover */
+.search-btn:hover {
+    background: linear-gradient(180deg, #231651, #4DCCBD, #EEF36A);
+}
+
+/* TWO COLUMN GRID*/
+/* Sets up two-column layout with gap between columns */
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;/* Defines two equal columns */
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+/*COMMON CARD STYLES*/
+/* Base styling for all card types */
+.movie-card,
+.hero-card,
+.horizontal-card {
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);/* Subtle shadow for depth */
+    display: flex;
+    flex-direction: column;
+}
+/* Image styling in movie cards */
+.movie-poster {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 4px 4px 0 0;
+    background-color: #000;
+}
+/* Movie card specific styles */
+.movie-card {
+    background: white;
+    border-radius: 4px;
+    overflow: hidden; /* Ensures content stays inside rounded corners */
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2), /* Right shadow */
+                8px 8px 8px rgba(0, 0, 0, 0.15); /* Bottom shadow */
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s ease; /* Optional: add smooth transition */
+}
+/* Adds larger shadow on hover */
+.movie-card:hover {
+    box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.25), /* Enhanced right shadow on hover */
+                12px 12px 12px rgba(0, 0, 0, 0.2); /* Enhanced bottom shadow on hover */
+}
+
+/* Content styling inside movie card */
+.movie-content {
+    padding: 24px;
+    flex: 1;
+    display: flex; /* Flex layout */
+    flex-direction: column; /* Stacks content vertically */
+}
+/* Title styling for movie cards */
+.movie-title {
+    font-size: 2em;
+    font-weight: bold;
+    font-family: 'Teko', sans-serif;
+    margin-bottom: 16px;
+}
+/* Description styling for movie cards */
+.movie-description {
+    font-size: 1.5em;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 24px;
+    flex: 1;
+}
+/* Watch button styling for movie cards */
+.watch-btn {
+    font-size: 2em;
+    font-family: 'Teko', sans-serif;
+    padding: 12px 32px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(45deg, #070410, #231651, #4DCCBD, #EEF36A);
+    background-size: 200%;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-shadow: -1px -1px 0 #070410, /* Text shadow for contrast */
+                 1px -1px 0 #070410,
+                 -1px 1px 0 #070410,
+                 1px 1px 0 #070410;
+    transition: background-position 0.3s;/* Smooth transition */
+    align-self: center;/* Centers button */
+    width: 100%;
+    text-align: center;
+}
+
+.watch-btn:hover {
+    background-position: right;/* Shifts gradient on hover */
+    color: #070410;
+    text-shadow: -1px -1px 0 #FFFFFF,  /* White text shadow */
+                 1px -1px 0 #FFFFFF,
+                 -1px 1px 0 #FFFFFF,
+                 1px 1px 0 #FFFFFF;
+}
+
+/*HERO CARD*/
+.hero-card {
+    margin-bottom: 32px;
+}
+
+.hero-card .movie-poster {
+    height: 500px;/* Larger image height for hero cards */
+}
+
+.hero-card .movie-content {
+    display: grid;
+    grid-template-columns: 1fr auto; /* Divides content */
+    align-items: start;
+}
+/* Title styling for hero cards */
+.hero-card .movie-title {
+    font-size: 2em;
+    grid-column: 1 / -1;
+}
+
+.hero-card .movie-description {
+    margin-bottom: 0;
+}
+
+.hero-card .watch-btn {
+    align-self: center;
+    width: auto;
+    padding: 90px 48px;
+    white-space: nowrap;
+}
+.hero-card {
+    background: white;
+    border-radius: 4px;
+    overflow: hidden; /* Ensures content stays inside rounded corners */
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2), /* Right shadow */
+                8px 8px 8px rgba(0, 0, 0, 0.15); /* Bottom shadow */
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s ease; /* Optional: add smooth transition */
+}
+
+.hero-card:hover {
+    box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.25), /* Enhanced right shadow on hover */
+                12px 12px 12px rgba(0, 0, 0, 0.2); /* Enhanced bottom shadow on hover */
+}
+
+/*Horizontal CARD */
+/* Horizontal Card Specific Styles */
+.horizontal-card {
+    display: flex;
+    flex-direction: row;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2), /* Right shadow */
+                8px 8px 8px rgba(0, 0, 0, 0.15); /* Bottom shadow */
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 24px;
+    height: 100%; /* Full height of container */
+}
+
+.horizontal-card:hover {
+    box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.25), /* Enhanced right shadow on hover */
+                12px 12px 12px rgba(0, 0, 0, 0.2); /* Enhanced bottom shadow on hover */
+}
+.horizontal-card .movie-poster {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 4px 0 0 4px;
+}
+
+.horizontal-card .movie-content {
+    flex: 1;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.horizontal-card .movie-title {
+    font-size: 2em;
+    margin-bottom: 8px;
+}
+
+.horizontal-card .movie-description {
+    font-size: 1.5em;
+    line-height: 1.4;
+    margin-bottom: 16px;
+    flex-grow: 1; 
+    overflow: hidden;
+   
+}
+
+.horizontal-card .watch-btn {
+    width: 100%;
+    padding: 12px 24px;
+    font-size: 1.5em;
+    align-self: flex-end; /* Sticks the button to the bottom */
+}
+
+
+
+/* MEDIA QUERY FOR TABLET */
+@media (min-width: 720px) and (max-width: 1023px) {
+    /* Base Styles */
+    .main-content {
+      padding: 0 32px;
+    }
+  
+    /* Header */
+    .header {
+      padding: 16px 32px;
+    }
+  
+    .logo {
+      font-size: 2.5em;
+    }
+  
+    .nav a {
+      font-size: 1.2em;
+      margin: 0 12px;
+    }
+  
+    .search-btn {
+      font-size: 2em;
+      padding: 8px 20px;
+    }
+  
+    /* Convert all layouts to two columns */
+    .main-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+  
+    .hero-card {
+      margin-bottom: 0;
+      height: 100%;
+    }
+  
+    .hero-card .movie-poster {
+      height: 300px;
+    }
+  
+    .hero-card .movie-content {
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
+    }
+  
+    .hero-card .movie-title {
+      font-size: 1.8em;
+    }
+  
+    .hero-card .movie-description {
+      font-size: 1.3em;
+      margin-bottom: 16px;
+    }
+  
+    .hero-card .watch-btn {
+      font-size: 1.8em;
+      padding: 12px 24px;
+      width: 100%;
+    }
+  
+    /* Movie Card */
+    .movie-card {
+      margin-bottom: 0;
+      height: 100%;
+    }
+  
+    .movie-card .movie-poster {
+      height: 300px;
+    }
+  
+    .movie-card .movie-title {
+      font-size: 1.8em;
+    }
+  
+    .movie-card .movie-description {
+      font-size: 1.3em;
+    }
+  
+    .movie-card .watch-btn {
+      font-size: 1.8em;
+      padding: 12px 24px;
+    }
+  
+    /* Vertical Card - convert to regular card style for consistency */
+    .horizontal-card {
+      flex-direction: column;
+      margin-bottom: 0;
+      height: 100%;
+    }
+  
+    .horizontal-card .movie-poster {
+      width: 100%;
+      height: 300px;
+      border-radius: 4px 4px 0 0;
+    }
+  
+    .horizontal-card .movie-content {
+      padding: 24px;
+    }
+  
+    .horizontal-card .movie-title {
+      font-size: 1.8em;
+    }
+  
+    .horizontal-card .movie-description {
+      font-size: 1.3em;
+      margin-bottom: 16px;
+    }
+  
+    .horizontal-card .watch-btn {
+      font-size: 1.8em;
+      padding: 12px 24px;
+    }
+    .two-column {
+      display: contents;
+    }
+  }
+
+/* MEDIA QUERY FOR MOBILE */
+@media (max-width: 719px) {
+    /* Base Styles */
+    .main-content {
+        max-width: 100%;
+        margin: 16px auto;
+        padding: 0 16px;
+        display: block; /* Reset grid layout */
+    }
+
+    /* Header Modifications */
+    .header {
+        padding: 16px;
+        justify-content: space-between;
+    }
+
+    .logo {
+        font-size: 2em; 
+    }
+
+    /* Hide navigation links on mobile */
+    .nav {
+        display: none;
+    }
+
+    .search-btn {
+        font-size: 2em; 
+        padding: 8px 16px; 
+    }
+
+    /* Reset Grid Layouts */
+    .two-column {
+        display: block;
+        margin-bottom: 16px;
+    }
+
+    /* Hero Card Modifications */
+    .hero-card {
+        margin-bottom: 16px;
+    }
+
+    .hero-card .movie-poster {
+        height: 300px;
+    }
+
+    .hero-card .movie-content {
+        display: flex;
+        flex-direction: column;
+        padding: 16px;
+    }
+
+    .hero-card .movie-title {
+        font-size: 1.5em;
+        margin-bottom: 8px;
+    }
+
+    .hero-card .movie-description {
+        font-size: 1.5em;
+        margin-bottom: 16px;
+    }
+
+    .hero-card .watch-btn {
+        width: 100%;
+        padding: 8px 16px;
+        align-self: stretch;
+    }
+
+    /* Movie Card Modifications */
+    .movie-card {
+        margin-bottom: 16px;
+    }
+
+    .movie-card .movie-poster {
+        height: 300px;
+    }
+
+    .movie-card .movie-content {
+        padding: 16px;
+    }
+
+    .movie-card .movie-title {
+        font-size: 1.5em;
+    }
+
+    .movie-card .movie-description {
+        font-size: 1.5em;
+        margin-bottom: 16px;
+    }
+
+    .movie-card .watch-btn {
+        padding: 8px 16px;
+    }
+
+    /* Vertical Card Modifications */
+    .horizontal-card {
+        flex-direction: column;
+        margin-bottom: 16px;
+    }
+
+    .horizontal-card .movie-poster {
+        width: 100%;
+        height: 300px;
+        border-radius: 4px 4px 0 0;
+    }
+
+    .horizontal-card .movie-content {
+        padding: 16px;
+    }
+
+    .horizontal-card .movie-title {
+        font-size: 1.5em;
+    }
+
+    .horizontal-card .movie-description {
+        font-size: 1.5em;
+        margin-bottom: 16px;
+    }
+
+    .horizontal-card .watch-btn {
+        padding: 8px 16px;
+        width: 100%;
+    }
+}
